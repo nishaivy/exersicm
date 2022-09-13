@@ -1,56 +1,59 @@
-# Phone Number
+# Palindrome Products
 
-Welcome to Phone Number on Exercism's C# Track.
+Welcome to Palindrome Products on Exercism's C# Track.
 If you need help running the tests or submitting your code, check out `HELP.md`.
 
 ## Instructions
 
-Clean up user-entered phone numbers so that they can be sent SMS messages.
+Detect palindrome products in a given range.
 
-The **North American Numbering Plan (NANP)** is a telephone numbering system used by many countries in North America like the United States, Canada or Bermuda. All NANP-countries share the same international country code: `1`.
+A palindromic number is a number that remains the same when its digits are
+reversed. For example, `121` is a palindromic number but `112` is not.
 
-NANP numbers are ten-digit numbers consisting of a three-digit Numbering Plan Area code, commonly known as *area code*, followed by a seven-digit local number. The first three digits of the local number represent the *exchange code*, followed by the unique four-digit number which is the *subscriber number*.
+Given a range of numbers, find the largest and smallest palindromes which
+are products of two numbers within that range.
 
-The format is usually represented as
+Your solution should return the largest and smallest palindromes, along with the
+factors of each within the range. If the largest or smallest palindrome has more
+than one pair of factors within the range, then return all the pairs.
 
-```text
-(NXX)-NXX-XXXX
-```
+## Example 1
 
-where `N` is any digit from 2 through 9 and `X` is any digit from 0 through 9.
+Given the range `[1, 9]` (both inclusive)...
 
-Your task is to clean up differently formatted telephone numbers by removing punctuation and the country code (1) if present.
+And given the list of all possible products within this range:
+`[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 15, 21, 24, 27, 20, 28, 32, 36, 25, 30, 35, 40, 45, 42, 48, 54, 49, 56, 63, 64, 72, 81]`
 
-For example, the inputs
+The palindrome products are all single digit numbers (in this case):
+`[1, 2, 3, 4, 5, 6, 7, 8, 9]`
 
-- `+1 (613)-995-0253`
-- `613-995-0253`
-- `1 613 995 0253`
-- `613.995.0253`
+The smallest palindrome product is `1`. Its factors are `(1, 1)`.
+The largest palindrome product is `9`. Its factors are `(1, 9)` and `(3, 3)`.
 
-should all produce the output
+## Example 2
 
-`6139950253`
+Given the range `[10, 99]` (both inclusive)...
 
-**Note:** As this exercise only deals with telephone numbers used in NANP-countries, only 1 is considered a valid country code.
+The smallest palindrome product is `121`. Its factors are `(11, 11)`.
+The largest palindrome product is `9009`. Its factors are `(91, 99)`.
+
+For this exercise, you will need to create a set of factors using tuples.
+For more information on tuples, see [this link](https://docs.microsoft.com/en-us/dotnet/api/system.tuple?view=net-6.0).
 
 ## Source
 
 ### Created by
 
-- @bressain
+- @ErikSchierboom
 
 ### Contributed to by
 
-- @ErikSchierboom
+- @bressain
 - @j2jensen
-- @jwood803
-- @kytrinyx
+- @jmbradnan
 - @robkeim
-- @tomschluter
-- @vgrigoriu
 - @wolf99
 
 ### Based on
 
-Event Manager by JumpstartLab - http://tutorials.jumpstartlab.com/projects/eventmanager.html
+Problem 4 at Project Euler - http://projecteuler.net/problem=4
